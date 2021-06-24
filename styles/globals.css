@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-family: 'Roboto Mono', monospace, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: black;
+  box-sizing:border-box;
 }
 
 a {

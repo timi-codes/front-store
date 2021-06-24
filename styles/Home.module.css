@@ -4,9 +4,6 @@
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   --dot-size: 1px;
   --dot-space: 22px;
   background: linear-gradient(90deg,#000 21px,transparent 1%) 50%,linear-gradient(#000 21px,transparent 1%) 50%,#444;
@@ -14,7 +11,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 1rem 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -28,18 +25,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0.7;
+  font-size: 14px
 }
 
 .footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  margin-left: 14px;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.header {
+  position: relative;
+}
+
+.title span {
+  font-weight: bolder;
+  background-image: linear-gradient(111.19deg,#88ffea -63.59%,#ff4ecd -20.3%,#1a75ff 70.46%);
+  background-clip: text;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .title a:hover,
@@ -49,9 +54,10 @@
 }
 
 .title {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3.2rem;
 }
 
 .title,
@@ -60,17 +66,67 @@
 }
 
 .description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.7;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.input_container {
+  display: flex;
+  background-image: linear-gradient(90.69deg,#88ffea 13.42%,#ff4ecd 42.37%,#1a75ff 103.09%);
+  border-radius: 12px;
+  padding: 4px;
+  min-width: 400px;
+  margin-top: 2rem;
+}
+
+.inputInner {
+  display: flex;
+  background-color: black;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.input_container input {
+  height: 50px;
+  padding: 0 14px;
+  border: none;
+  background-color: transparent;
+  flex-basis: 95%;
+  outline: none;
+  color: white;
+}
+
+.input_container button {
+  flex-basis: 10%;
+  width: 80px;
+  background-color: white;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.input_container button:hover {
+  opacity: 0.8;
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  height: 15px;
+  flex-basis: 4%;
+  margin: auto 0.7rem;
+  padding: 10px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .grid {
@@ -79,7 +135,7 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .card {
@@ -88,38 +144,91 @@
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: margin-top 0.2s ease-out;
   width: 45%;
+  cursor: pointer;
+  background-color: #111111;
+  min-height: 30rem;
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  margin-top: -0.3rem;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.card h1 {
+  margin: 1rem 0 1rem 0;
+  font-size: 1.3rem;
+  white-space: wrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  opacity: 0.7;
+  min-height: 3.9rem;
 }
 
 .card p {
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  white-space: wrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  opacity: 0.7
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.card img {
+  border-radius: 3px;
+  min-height: 210px;
+  min-width: 100%;
+}
+
+.pagination {
+  text-align: center;
+  display: inline-grid;
+  grid-template-columns: repeat(4, auto);
+  align-items: stretch;
+  justify-content: center;
+  align-content: center;
+  margin: 2rem 0;
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.pagination a[aria-disabled='true'] {
+  color: grey;
+  pointer-events: none;
+}
+
+.pagination > * {
+  margin: 0;
+  padding: 15px 30px;
+  border-right: 2px solid rgba(255, 255, 255, 1);
+}
+
+.pagination > *:last-child {
+  border-right: 0;
 }
 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .pagination {
+    font-size: 11px;
+  }
+  .pagination > * {
+    padding: 12px 14px;
   }
 }
