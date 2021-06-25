@@ -39,7 +39,6 @@
 
 .title span {
   font-weight: bolder;
-  background-image: linear-gradient(111.19deg,#88ffea -63.59%,#ff4ecd -20.3%,#1a75ff 70.46%);
   background-clip: text;
     -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
@@ -221,6 +220,9 @@
 }
 
 @media (max-width: 600px) {
+  .main {
+    padding: 0;
+  }
   .grid {
     width: 100%;
     flex-direction: column;
@@ -230,5 +232,15 @@
   }
   .pagination > * {
     padding: 12px 14px;
+  }
+  .input_container {
+    min-width: 300px
+  }
+  .title {
+      font-size: 2rem;
+      margin-top: 2rem
+  }
+  .card {
+    width: 85%;
   }
 }
